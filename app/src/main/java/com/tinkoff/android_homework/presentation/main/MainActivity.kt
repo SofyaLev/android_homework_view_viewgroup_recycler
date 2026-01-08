@@ -10,6 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.tinkoff.android_homework.R
+import com.tinkoff.android_homework.presentation.adapter.OperationAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
 
     private val viewModel by viewModels<MainViewModel>()
 
+    private val operationAdapter = OperationAdapter()
     private lateinit var operationsRecyclerView: RecyclerView
     private lateinit var totalSum: TextView
     private lateinit var outcome: TextView
@@ -58,13 +60,13 @@ class MainActivity : AppCompatActivity() {
     private fun subscribeToOperations() {
         lifecycleScope.launch {
             viewModel.operations.collect {
-                // TODO Добавить сущности операций в адаптер
+                operationAdapter.data = it
             }
         }
     }
 
     private fun initOperationsRecycler() {
-        //  TODO Добавить адаптер для ресайклера
+        operationsRecyclerView.adapter = operationAdapter
         operationsRecyclerView.layoutManager = LinearLayoutManager(baseContext)
     }
 }
