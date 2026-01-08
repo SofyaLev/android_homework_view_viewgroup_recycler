@@ -17,6 +17,29 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@drawable/income_icon" />
 
+    <TextView
+        android:id="@+id/operation_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/operation_sum"
+        app:layout_constraintStart_toEndOf="@id/operation_icon"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginHorizontal="16dp"
+        android:textSize="16sp"
+        android:textColor="#49454F"
+        android:text="Перевод на карту"/>
 
+    <TextView
+        android:id="@+id/operation_sum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginHorizontal="16dp"
+        android:textSize="16sp"
+        android:textColor="#49454F"
+        android:text="2100" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
